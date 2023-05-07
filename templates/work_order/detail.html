@@ -1,0 +1,11 @@
+{% extends 'base.html' %}
+
+{% block content %}
+    <h1>{{ asset.name }}</h1>
+    <p>Asset Tag: {{ asset.asset_tag }}</p>
+    <p>Serial Number: {{ asset.serial_number }}</p>
+    <p>Location: {{ asset.location }}</p>
+    <p>Purchase Date: {{ asset.purchase_date }}</p>
+    <p>Warranty Expiration: {{ asset.warranty_expiration }}</p>
+    <!-- Add other asset details as needed -->
+{% endblock %}

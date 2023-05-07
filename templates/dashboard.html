@@ -1,0 +1,64 @@
+{% extends 'base.html' %}
+
+{% block content %}
+    <div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom">
+        <h1 class="h2">Dashboard</h1>
+    </div>
+
+    <div class="row">
+        <!-- Example of a card with a summary -->
+        <div class="col-md-6 col-lg-4 mb-4">
+            <div class="card">
+                <div class="card-body">
+                    <h5 class="card-title">Total Assets</h5>
+                    <h3 class="card-text">{{ total_assets }}</h3>
+                </div>
+            </div>
+        </div>
+
+        <!-- Add more summary cards as needed -->
+
+    </div>
+
+    <div class="row">
+        <!-- Example of a chart using Chart.js -->
+        <div class="col-md-12 col-lg-6 mb-4">
+            <div class="card">
+                <div class="card-body">
+                    <h5 class="card-title">Asset Types</h5>
+                    <canvas id="assetTypesChart"></canvas>
+                </div>
+            </div>
+        </div>
+
+        <!-- Add more charts or other content as needed -->
+
+    </div>
+
+{% endblock %}
+
+{% block extra_js %}
+    <!-- Include Chart.js library -->
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
+    <!-- Add custom JavaScript code for the charts -->
+    <script>
+        // Example chart using Chart.js
+        const assetTypesData = {
+            labels: ['Equipment', 'Vehicles', 'Machinery'],
+            datasets: [{
+                data: [10, 20, 30], // Replace with real data from your application
+                backgroundColor: ['#4e73df', '#1cc88a', '#36b9cc']
+            }]
+        };
+        
+        const assetTypesChart = new Chart(document.getElementById('assetTypesChart'), {
+            type: 'doughnut',
+            data: assetTypesData,
+            options: {
+                maintainAspectRatio: false,
+                responsive: true
+            }
+        });
+    </script>
+{% endblock %}
